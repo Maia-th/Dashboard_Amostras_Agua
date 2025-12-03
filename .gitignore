@@ -1,0 +1,241 @@
+# ==============================================================================
+# GITIGNORE - Dashboard de Monitoramento de Água
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# CONFIGURAÇÕES SENSÍVEIS - NUNCA COMMITAR
+# ------------------------------------------------------------------------------
+config.py
+*. env
+. env
+.env.local
+.env.*.local
+
+# Backup de configurações
+config. py.bak
+config_local.py
+
+# ------------------------------------------------------------------------------
+# AMBIENTE VIRTUAL PYTHON
+# ------------------------------------------------------------------------------
+# Diretórios do virtualenv
+bin/
+lib/
+lib64/
+include/
+pyvenv.cfg
+share/
+
+# Outros ambientes virtuais
+venv/
+ENV/
+env/
+. venv/
+
+# ------------------------------------------------------------------------------
+# PYTHON
+# ------------------------------------------------------------------------------
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+. eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*. manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+. nox/
+.coverage
+. coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*. ipynb
+
+# ------------------------------------------------------------------------------
+# STREAMLIT
+# ------------------------------------------------------------------------------
+. streamlit/secrets.toml
+.streamlit/config.toml
+
+# Cache do Streamlit
+.streamlit/cache/
+
+# ------------------------------------------------------------------------------
+# IDEs E EDITORES
+# ------------------------------------------------------------------------------
+# VSCode
+.vscode/
+*. code-workspace
+
+# PyCharm
+.idea/
+*. iml
+*. iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*. swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ------------------------------------------------------------------------------
+# SISTEMA OPERACIONAL
+# ------------------------------------------------------------------------------
+# MacOS
+.DS_Store
+. AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*. stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*. lnk
+
+# Linux
+. directory
+. Trash-*
+. nfs*
+
+# ------------------------------------------------------------------------------
+# LOGS E DATABASES TEMPORÁRIOS
+# ------------------------------------------------------------------------------
+*.log
+*.sql
+*.sqlite
+*. sqlite3
+*.db
+
+# Logs do aplicativo
+logs/
+*.log.*
+
+# ------------------------------------------------------------------------------
+# DADOS E BACKUPS
+# ------------------------------------------------------------------------------
+# Arquivos de dados locais
+data/
+*.csv
+*.xlsx
+*.xls
+
+# Backups
+backup/
+*.bak
+*.backup
+*.old
+
+# Dumps de banco
+*.dump
+*.sql. gz
+
+# ------------------------------------------------------------------------------
+# ARQUIVOS TEMPORÁRIOS
+# ------------------------------------------------------------------------------
+*. tmp
+*.temp
+tmp/
+temp/
+
+# ------------------------------------------------------------------------------
+# DOCUMENTAÇÃO GERADA
+# ------------------------------------------------------------------------------
+docs/_build/
+site/
+
+# ------------------------------------------------------------------------------
+# DEPENDÊNCIAS E PACKAGES
+# ------------------------------------------------------------------------------
+node_modules/
+bower_components/
+
+# ------------------------------------------------------------------------------
+# ARQUIVOS DE TESTE
+# ------------------------------------------------------------------------------
+test_*. py
+*_test.py
+tests/temp/
+
+# ------------------------------------------------------------------------------
+# OUTROS
+# ------------------------------------------------------------------------------
+# Arquivos comprimidos
+*.zip
+*.tar. gz
+*.rar
+*.7z
+
+# Certificados e chaves
+*.pem
+*.key
+*.cert
+*.crt
+
+# Arquivos de configuração local
+local_settings.py
+settings_local.py
+
+# Cache do pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
