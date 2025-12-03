@@ -13,8 +13,7 @@ def get_connection():
             user=DB_CONFIG['user'],
             password=DB_CONFIG['password'],
             database=DB_CONFIG['database'],
-            charset=DB_CONFIG['charset'],
-            cursorclass=pymysql.cursors.DictCursor
+            charset=DB_CONFIG['charset']
         )
         return connection
     except Exception as e:
@@ -25,10 +24,11 @@ def get_all_data():
     query = """
     SELECT 
         c.coleta_id,
-        c. data_hora,
+        c.data_hora,
+        c.descricao_amostra,
         c.ph,
         c.carac_ph,
-        c.turbidez_ntu,
+        c. turbidez_ntu,
         c.temp_agua_c,
         c.temp_ar_c,
         c.umidade_ar_perc,
@@ -48,30 +48,42 @@ def get_all_data():
     connection = get_connection()
     try:
         df = pd.read_sql(query, connection)
+        df['data_hora'] = pd.to_datetime(df['data_hora'])
         return df
+    except Exception as e:
+        raise Exception(f"Erro ao buscar dados: {e}")
     finally:
         connection.close()
 
 def extrair_local_categoria(descricao):
-    """Extrai a categoria do local baseado na descrição"""
-    descricao_lower = descricao.lower()
+    """Extrai a categoria do local baseado na descrição - com correspondência exata"""
+    if pd.isna(descricao):
+        return 'Outros'
     
-    if 'anexo 1' in descricao_lower or 'anexo i' in descricao_lower:
-        return 'Anexo I'
-    elif 'anexo 3' in descricao_lower or 'anexo iii' in descricao_lower:
+    descricao_lower = str(descricao).lower()
+    
+    if 'anexo iii' in descricao_lower or 'anexo 3' in descricao_lower:
         return 'Anexo III'
-    elif 'anexo 4' in descricao_lower or 'anexo iv' in descricao_lower:
+    elif 'anexo iv' in descricao_lower or 'anexo 4' in descricao_lower:
         return 'Anexo IV'
-    elif 'predio 1' in descricao_lower or 'prédio 1' in descricao_lower:
-        return 'Prédio 1'
+    elif 'anexo ii' in descricao_lower or 'anexo 2' in descricao_lower:
+        return 'Anexo II'
+    elif 'anexo i' in descricao_lower or 'anexo 1' in descricao_lower:
+        return 'Anexo I'
     elif 'predio 2' in descricao_lower or 'prédio 2' in descricao_lower or 'torre 2' in descricao_lower:
         return 'Prédio 2'
+    elif 'predio 1' in descricao_lower or 'prédio 1' in descricao_lower:
+        return 'Prédio 1'
     else:
         return 'Outros'
 
 def converter_url_drive(url):
     """Converte URL do Google Drive para formato de visualização direta"""
-    if 'drive.google.com' in url and 'id=' in url:
-        file_id = url.split('id=')[1]
-        return f"https://drive.google.com/uc?export=view&id={file_id}"
-    return url
+    if pd.isna(url):
+        return None
+    
+    url_str = str(url)
+    if 'drive. google.com' in url_str and 'id=' in url_str:
+        file_id = url_str.split('id=')[1].split('&')[0]
+        return f"https://drive.google.com/uc? export=view&id={file_id}"
+    return url_str

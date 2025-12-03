@@ -9,5 +9,4 @@ DB_CONFIG = {
     'password': 'sua_senha_aqui',  # ALTERE: senha do MySQL
     'database': 'monitoramento_agua',
     'charset': 'utf8mb4',
-    'cursorclass': 'DictCursor'
 }
