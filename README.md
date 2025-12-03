@@ -109,7 +109,7 @@ O dashboard se conecta a um banco MySQL com as seguintes tabelas:
 - Total de amostras coletadas
 - pH médio
 - Temperatura média da água
-- Turbidez média
+- Temperatura média do ar
 - Umidade média do ar
 
 ### Gráficos Interativos
