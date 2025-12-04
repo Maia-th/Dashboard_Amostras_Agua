@@ -153,3 +153,5 @@ pip install --force-reinstall -r requirements. txt
 - **plotly**: Visualizações interativas e gráficos
 - **pymysql**: Conexão com banco de dados MySQL
 
+- ```pip install streamlit pandas plotly pymysql```
+
