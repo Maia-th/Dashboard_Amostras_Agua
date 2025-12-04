@@ -41,7 +41,7 @@ def get_all_data():
         f.url_foto
     FROM COLETAS c
     INNER JOIN LOCAIS l ON c.local_id = l.local_id
-    LEFT JOIN FOTOS f ON c. coleta_id = f.coleta_id
+    LEFT JOIN FOTOS f ON c.coleta_id = f.coleta_id
     ORDER BY c.data_hora DESC
     """
     
@@ -83,7 +83,7 @@ def converter_url_drive(url):
         return None
     
     url_str = str(url)
-    if 'drive. google.com' in url_str and 'id=' in url_str:
+    if 'drive.google.com' in url_str and 'id=' in url_str:
         file_id = url_str.split('id=')[1].split('&')[0]
         return f"https://drive.google.com/uc? export=view&id={file_id}"
     return url_str
