@@ -21,7 +21,6 @@ Dashboard interativo desenvolvido com Streamlit para visualização e análise d
 - Visualização individual de cada amostra
 - Dados químicos e físicos completos
 - Fotos das amostras (integração com Google Drive)
-- Tabela de dados com opção de download em CSV
 
 ## 🚀 Como subir o ambiente
 
